@@ -11,12 +11,12 @@ runs:
         echo "# Usage for /mnt"
         sudo du --human-readable \
                 --threshold 50m \
-                -- /mnt
+                -- /mnt || true
         echo "# Usage for /var/lib/docker/volumes"
         sudo du --human-readable \
                 --dereference \
                 --threshold 50m \
-                -- /var/lib/docker/volumes/
+                -- /var/lib/docker/volumes/ || true
     - name: Free up disk space
       shell: bash
       run: |
@@ -66,9 +66,9 @@ runs:
         echo "# Usage for /mnt"
         sudo du --human-readable \
                 --threshold 50m \
-                -- /mnt
+                -- /mnt || true
         echo "# Usage for /var/lib/docker/volumes"
         sudo du --human-readable \
                 --dereference \
                 --threshold 50m \
-                -- /var/lib/docker/volumes/
+                -- /var/lib/docker/volumes/ || true
