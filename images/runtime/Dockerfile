@@ -56,3 +56,4 @@ COPY --from=go-builder /out /
 FROM scratch
 LABEL maintainer="maintainer@cilium.io"
 COPY --from=rootfs / /
+# trigger
